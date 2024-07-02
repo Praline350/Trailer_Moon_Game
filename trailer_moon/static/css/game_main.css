@@ -1,0 +1,113 @@
+.main-game{
+    margin-top:40px;
+    justify-content: center;
+    display: flex;
+}
+
+.map-container{
+    position: relative;
+    overflow: hidden;
+    width: 1200px;
+    height: 670px;
+    border: 4px solid black;
+}
+
+.map{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 0;
+}
+
+.map-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.map-selector {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.location {
+    position: absolute;
+    transform: translate(-50%, -50%);  /* Centrer les points sur leurs coordonnées */
+    z-index: 100;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid black;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+}
+
+.location-point{
+    width: 20px;
+    height: auto;
+}
+
+.zoom-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.zoom-button {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.zoom-button:hover {
+    background-color: #555;
+}
+
+.move-controls {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.move-button {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.move-button:hover {
+    background-color: #555;
+}
+
+.grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    z-index: 2;
+}
+
+.grid div {
+    border: 0.5px solid rgba(0, 0, 0, 0.2);  /* Ligne de la grille légèrement transparente */
+}

@@ -6,6 +6,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 50px;
+    justify-content: center;
+    
 }
 
 .left-side{
@@ -19,14 +21,17 @@
 
 .center-side{
     grid-column: 2;
+    border: 2px solid black;
 }
 
 .trailers-info{
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
 }
 
 .characters-info{
     display: flex;
-    gap: 30px;
+    flex-direction: column;
     align-items: center;
 }
