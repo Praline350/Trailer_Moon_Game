@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main-import.css' %}" rel="stylesheet">
+    <script src="{% static 'js/zoom.js' %}" defer></script>
+    <script src="{% static 'js/change_map.js' %}" defer></script>
     <title>Trailer Moon</title>
 </head>
+<nav class="main-nav-bar">
+    
+</nav>
 <body>
     
     {% block content %}{% endblock content %}
