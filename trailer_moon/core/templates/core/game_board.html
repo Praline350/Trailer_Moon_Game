@@ -7,7 +7,7 @@
     </div>
     <div class="center-side">
         <div class="trailers-info">
-            <h2>Vos Trailers</h2>
+            <h2 class="">Vos Trailers</h2>
             {% for trailer in trailers %}
             <h3>{{trailer.name}}</h3>
             <p>Capacité : {{ trailer.capacity }} </p>
@@ -15,11 +15,20 @@
             <p>Nourriture : {{ trailer.food_supply }}</p>
             
         </div>
-        <h2>Vos colons</h2>
         <div class="characters-info">
+            <h2>Vos colons</h2>
             {% for character in trailer.characters.all %}
             <h3> {{ character.name }}</h3>
             <p>Level : {{ character.level }}</p>
+            <p>Statistiques :</p>
+                <ul>
+                    <li>Force : {{ character.stats.strength }}</li>
+                    <li>Agilité : {{ character.stats.agility }}</li>
+                    <li>Intelligence : {{ character.stats.intelligence }}</li>
+                    <li>Social : {{ character.stats.social }}</li>
+                    <li>Perception : {{ character.stats.perception }}</li>
+                    <li>Connexion bio : {{ character.stats.bio_connection }}</li>
+                </ul>
             {% endfor %}
         </div>
         {% endfor %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="main-content main-game"> 
+    <div class="map-container">
+        <div class="zoom-controls">
+            <button class="zoom-button" onclick="zoomIn()">+</button>
+            <button class="zoom-button" onclick="zoomOut()">-</button>
+        </div>
+        <div class="map" id="map">
+            <img id="mapImage" class="map-background" src="{{ map.image.url }}" alt="Map Image" >
+            <div id="grid-container" class="grid"></div>
+            {% for location in locations %}
+                <div class="location" data-map-id="{{ location.map.id }}" style="left: {{ location.x_coordinate }}px; top: {{ location.y_coordinate }}px;">
+                    <img class="location-point" src="{% static 'images/location_point.png' %}" alt=" {{ location.name }} ">
+                <div>{{ location.name }}</div>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="move-controls">
+            <button class="move-button" onclick="moveMap('up')">↑</button>
+            <button class="move-button" onclick="moveMap('down')">↓</button>
+            <button class="move-button" onclick="moveMap('left')">←</button>
+            <button class="move-button" onclick="moveMap('right')">→</button>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
