@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     'authentication',
     'core',
     'characters',
+    'trailers',
     'skills',
-    'trailer',
     'inventory',
     'items',
+    'locations',
 ]
 
 MIDDLEWARE = [
@@ -137,6 +138,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'authentication.User'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR.joinpath('media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'home'

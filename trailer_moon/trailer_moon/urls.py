@@ -15,15 +15,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 
 from authentication.views import LoginPageView, logout_user
-from core.views import HomePageView, GameBoardView
+from core.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', LoginPageView.as_view(), name='login'),
     path('logout/', logout_user, name='logout'),
     path('home/', HomePageView.as_view(), name='home'),
-    path('game-board/', GameBoardView.as_view(), name='game_board'),
+    path('game/board/', GameBoardView.as_view(), name='game_board'),
+    path('game/main/', GameMainView.as_view(), name='game_main')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
