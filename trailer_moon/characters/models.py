@@ -3,6 +3,7 @@ from PIL import Image
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+
 SEX_CHOICES = [
         ('M', 'Male'),
         ('F', 'Female'),
@@ -31,18 +32,17 @@ class Character(models.Model):
     water_necessity = models.FloatField(default=1.0)  # Quantité d'eau nécessaire par jour
     food_necessity = models.FloatField(default=1.0)  # Quantité de nourriture nécessaire par jour
     stats = models.OneToOneField(Stats, on_delete=models.CASCADE, related_name='character', null=True, blank=True)
-    skills = models.ManyToManyField('skills.Skill', through='characters.CharacterSkill')
-    stuff = models.ManyToManyField('items.Item', through='characters.CharacterItem')
+    skills = models.ManyToManyField('skills.Skill', through='characters.CharacterSkill', blank=True)
+    stuff = models.ManyToManyField('items.Item', through='characters.CharacterItem', blank=True)
 
     def save(self, *args, **kwargs):
         if not self.stats:
             self.stats = Stats.objects.create()
+        Trailer
         super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
-
-
 
 
 class CharacterSkill(models.Model):
@@ -55,6 +55,7 @@ class CharacterSkill(models.Model):
 
     def __str__(self):
         return f"{self.character.name} - {self.skill.name} (Proficiency: {self.proficiency})"
+
 
 class CharacterItem(models.Model):
     character = models.ForeignKey(Character, on_delete=models.CASCADE)
