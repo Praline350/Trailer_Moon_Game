@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main class="main-content main-grid">
+    <div class="left-side">
+
+    </div>
+    <div class="center-side">
+        <div class="trailers-info">
+            <h2>Vos Trailers</h2>
+            {% for trailer in trailers %}
+            <h3>{{trailer.name}}</h3>
+            <p>Capacité : {{ trailer.capacity }} </p>
+            <p>Eau : {{ trailer.water_supply }}</p>
+            <p>Nourriture : {{ trailer.food_supply }}</p>
+            
+        </div>
+        <h2>Vos colons</h2>
+        <div class="characters-info">
+            {% for character in trailer.characters.all %}
+            <h3> {{ character.name }}</h3>
+            <p>Level : {{ character.level }}</p>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="right-side">
+
+    </div>
+</main>
+{% endblock content %}
